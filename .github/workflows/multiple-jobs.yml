@@ -5,13 +5,31 @@ jobs:
     build_job_1:
       runs-on: ubuntu-latest
       steps:
+      - name: checkout
+        run: actions/checkout@v4
+        
       - name: command_1
-        run: echo "job 1"
+        run: echo "job 1" >> path/to/artifact/world.txt
+      
+      - name: upload_artifact
+        uses: actions/upload-artifact@v3
+        with:
+            name: my-artifact
+            path: path/to/artifact/world.txt
     
     build_job_2:
       needs: build_job_1
       runs-on: ubuntu-latest
       steps:
+      - name: checkout
+        run: actions/checkout
+
+      - name: download-artifact
+        uses: actions/download-artifacts@v3
+        with:
+            name: My-Artifact-Download
+            path: path/to/artifact/world.txt
+
       - name: command_2
         run: echo "job 2"
     
