@@ -16,6 +16,8 @@ on:
           - README.md
         branches:
           - main
+        branches-ignore:
+          - feature/*
 
 
 
