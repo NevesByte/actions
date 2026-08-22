@@ -43,7 +43,7 @@ jobs:
             path: path/to/artifact/world.txt
 
       - name: command_2
-        run: echo "job 2 feito pelo famoso ${{ env.GLOBAL-VAR }}"
+        run: echo "job 2 feito pelo famoso ${{ env.GLOBAL-VAR }} SEGUE A SENHA: ${{ secrets.PASSWORD }}"
     
     build_job_3:
       needs: [build_job_1, build_job_2]
