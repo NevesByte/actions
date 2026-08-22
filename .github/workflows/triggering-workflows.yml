@@ -1,6 +1,6 @@
 name: triggering-workflows
 on: 
-  workflow_dispatch:
+  push
 
     #  schedule:
 #    - cron: "*/5 * * * *"
@@ -12,7 +12,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: commad1
-              run: job2
+              run: ls -a
     jobname:
         concurrency:
             group: job-group-1
