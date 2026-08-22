@@ -1,6 +1,12 @@
 name: Multiple-Jobs
 on: push
 
+## env
+##   GLOBAL-VARABLE: GLOBAL-VALUE
+
+env:
+    GLOBAL-VAR: Neves
+
 jobs:
     build_job_1:
       runs-on: ubuntu-latest
@@ -37,7 +43,7 @@ jobs:
             path: path/to/artifact/world.txt
 
       - name: command_2
-        run: echo "job 2"
+        run: echo "job 2 feito pelo famoso ${{ env.GLOBAL-VAR }}"
     
     build_job_3:
       needs: [build_job_1, build_job_2]
