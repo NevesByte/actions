@@ -7,5 +7,5 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: command1
-        run: sleep 3600
+        run: sleep 1
         timeout-minutes: 1
