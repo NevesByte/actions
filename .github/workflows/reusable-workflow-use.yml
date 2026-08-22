@@ -1,0 +1,9 @@
+name: Reusable Workflow Use
+on:
+    push:
+
+jobs:
+    job-caller: 
+        runs-on: ubuntu-latest
+        steps:
+          - uses: ./.github/workflows/reusable.yml
