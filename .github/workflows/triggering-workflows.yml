@@ -8,6 +8,11 @@ on:
 env:
     VAR1: Victor
 jobs:
+    jobname2:
+        runs-on: ubuntu-latest
+        steps:
+            - name: commad1
+              run: job2
     jobname:
         concurrency:
             group: job-group-1
@@ -16,3 +21,4 @@ jobs:
         steps:
             - name: commad1
               run: echo meu nome é $VAR
+    
