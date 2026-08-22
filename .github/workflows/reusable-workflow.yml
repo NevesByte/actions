@@ -2,10 +2,15 @@ name: Reusable Deploy
 
 on:
     workflow_call:
+        inputs:
+            enviroment:
+                required: true
+                type: string
 
 jobs:
     jobs1:
+      if: inputs.enviroment == 'production'
       runs-on: ubuntu-latest
       steps:
         - name: step1
-          run: echo reusable_deploy
+          run: echo production-deploy
