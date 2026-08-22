@@ -4,10 +4,14 @@ on:
 
     #  schedule:
 #    - cron: "*/5 * * * *"
+
 env:
     VAR1: Victor
 jobs:
     jobname:
+        concurrency:
+            group: job-group-1
+            cancel-in-progress: true
         runs-on: ubuntu-latest
         steps:
             - name: commad1
