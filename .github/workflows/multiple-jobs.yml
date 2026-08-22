@@ -5,7 +5,7 @@ on: push
 ##   GLOBAL-VARABLE: GLOBAL-VALUE
 
 env:
-    GLOBAL-VAR: Neves
+    GLOBAL_VAR: Neves
 
 jobs:
     build_job_1:
@@ -43,7 +43,7 @@ jobs:
             path: path/to/artifact/world.txt
 
       - name: command_2
-        run: echo "job 2 feito pelo famoso ${{ env.GLOBAL-VAR }} SEGUE A SENHA: ${{ secrets.PASSWORD }}"
+        run: echo "job 2 feito pelo famoso ${{ env.GLOBAL_VAR }} SEGUE A SENHA ${{ secrets.PASSWORD }}"
     
     build_job_3:
       needs: [build_job_1, build_job_2]
