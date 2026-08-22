@@ -9,10 +9,12 @@ jobs:
         uses: actions/checkout@v4
         
       - name: command_1
+        env:
+            NAME: victor
         run: |
             mkdir -p path/to/artifact
             touch path/to/artifact/world.txt
-            echo "job 1" >> path/to/artifact/world.txt
+            echo "job 1, made by $NAME" >> path/to/artifact/world.txt
       
       - name: upload_artifact
         uses: actions/upload-artifact@v4
