@@ -1,0 +1,10 @@
+name: IF EXAMPLE
+on: push
+
+jobs:
+    job1:
+      if: github.ref == 'refs/heads/main'
+      runs-on: ubuntu-latest
+      steps:
+        - name: firstone
+          run: echo main-branch SIIUU ! 
