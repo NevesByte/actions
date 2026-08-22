@@ -7,3 +7,5 @@ jobs:
         uses: ./.github/workflows/reusable-workflow.yml
         with:
             enviroment: production
+        secrets:
+            PASSWORD: secrets.PASSWORD
