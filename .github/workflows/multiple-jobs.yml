@@ -30,7 +30,7 @@ jobs:
       - name: download-artifact
         uses: actions/download-artifacts@v4
         with:
-            name: My-Artifact-Download
+            artifact-ids: 12345
             path: path/to/artifact/world.txt
 
       - name: command_2
