@@ -6,7 +6,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: checkout
-        run: actions/checkout@v4
+        uses: actions/checkout@v4
         
       - name: command_1
         run: echo "job 1" >> path/to/artifact/world.txt
@@ -22,7 +22,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: checkout
-        run: actions/checkout
+        uses: actions/checkout
 
       - name: download-artifact
         uses: actions/download-artifacts@v4
