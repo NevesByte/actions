@@ -1,0 +1,21 @@
+name: Contexto testing
+on: push
+
+jobs:
+    dump_contexts_to_log:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Dump Github context
+            env:
+              GITHUB_CONTEXT: ${{ toJson(github) }}
+              JOB_CONTEXT: ${{ toJson(job) }}
+              STEPS_CONTEXT: ${{ toJson(steps) }}
+              RUNNER_CONTEXT: ${{ toJson(runner) }}
+              SECRET_CONTEXT: ${{ toJson(secrets) }}
+            run: |
+                echo $GITHUB_CONTEXT
+                echo $JOB_CONTEXT
+                echo $STEPS_CONTEXT
+                echo $RUNNER_CONTEXT
+                echo $SECRET_CONTEXT
+    
