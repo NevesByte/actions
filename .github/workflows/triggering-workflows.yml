@@ -1,0 +1,12 @@
+name: triggering-workflows
+on: 
+  schedule:
+    - cron: "*/1 * * * *"
+env:
+    VAR1: Victor
+jobs:
+    jobname:
+        runs-on: ubuntu-latest
+        steps:
+            - name: commad1
+              run: echo "meu nome é $VAR"
