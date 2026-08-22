@@ -10,6 +10,7 @@ jobs:
         
       - name: command_1
         run: |
+            sudo mkdir -p path/to/artifact
             sudo touch path/to/artifact/world.txt
             echo "job 1" >> path/to/artifact/world.txt
       
