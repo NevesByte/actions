@@ -11,4 +11,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: commad1
-              run: echo "meu nome é $VAR"
+              run: echo meu nome é $VAR
