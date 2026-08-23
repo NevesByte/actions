@@ -1,0 +1,14 @@
+name: Self-Hosted
+on: push
+
+jobs:
+    job-name:
+        runs-on: self-hosted
+        steps:
+          - name: Hello
+            run: echoo "Olá"
+    job2:
+        runs-on: [self-hosted, production]
+        steps:
+          - name: Test
+            run: echo "Test"

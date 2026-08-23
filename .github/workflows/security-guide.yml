@@ -1,0 +1,74 @@
+name: Secure CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "PR: $PR_TITLE"
+          echo "Executando testes..."
+          echo "Testes OK"
+
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Deploy iniciado"
+          echo "API configurada"
+          echo "Deploy concluído"
+
+
+  notify:
+    needs:
+      - test
+      - deploy
+
+    if: always()
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Notify
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          STATUS: ${{ job.status }}
+        run: |
+          echo "Status: $STATUS"
+          echo "Notificação enviada"
