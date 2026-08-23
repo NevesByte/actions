@@ -8,9 +8,10 @@ jobs:
         with:
             enviroment: production
         secrets:
-            PASSWORD: secrets.PASSWORD
+            PASSWORD: ${{ secrets.PASSWORD }}
     test:
+        needs: job-caller
         runs-on: ubuntu-latest
         steps:
-          - run: echo "${{ needs.deploy.outputs.application-url }}"
+          - run: echo "${{ needs.job-caller.outputs.application-url }}"
         
