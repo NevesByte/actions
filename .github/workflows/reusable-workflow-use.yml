@@ -9,3 +9,8 @@ jobs:
             enviroment: production
         secrets:
             PASSWORD: secrets.PASSWORD
+    test:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo "${{ needs.deploy.outputs.application-url }}"
+        

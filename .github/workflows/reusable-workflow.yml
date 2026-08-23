@@ -9,7 +9,9 @@ on:
         secrets:
             PASSWORD:
                 required: true
-
+        outputs:
+          application-url:
+            value: 1 + 1
 jobs:
     jobs1:
       if: inputs.enviroment == 'production'
