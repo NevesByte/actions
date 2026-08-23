@@ -2,6 +2,7 @@ name: My First WorkFlow
 on: [fork]
 jobs:
     first_job:
+        continue-on-error: true
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Repo
